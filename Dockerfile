@@ -8,12 +8,13 @@ USER root
 
 RUN apt-get update                              &&\
     apt-get install -y --no-install-recommends    \
-       python3.6                                  \
-       python3.6-dev                              \
+       python3.8                                  \
+       python3.8-dev                              \
        python3-numpy                              \
        python3-gdal                               \
        python3-pip                                \
        python3-libxml2                            \
+	   python3-rtree                              \
        python3-setuptools                         \
        binutils                                   \
        libgdal-dev                                \
@@ -31,7 +32,7 @@ RUN apt-get update                              &&\
        libopenjp2-7-dev                           \
        libcurl4-gnutls-dev                        \
        libproj-dev                                \
-       libgdal20                                  \
+       libgdal26                                  \
        gettext                                  &&\
     apt-get clean                               &&\
     rm -rf /var/lib/apt/lists/*                 &&\
@@ -69,7 +70,7 @@ RUN apt-get update                              &&\
     apt-get install -y --no-install-recommends    \
        python3-pip                                \
        gdal-bin                                   \
-       libgdal20                                  \
+       libgdal26                                  \
        sqlite3                                    \
        postgresql-client                          \
        apt-utils                                  \
@@ -91,6 +92,7 @@ RUN pip3 install --no-index --find-links=/home/$NB_USER/wheels \
       geopandas                                   \
       geopy                                       \
       googlemaps                                  \
+	  ipywidgets                                  \
       psycopg2-binary                             \
       pyproj                                      \
       pysal                                       \
